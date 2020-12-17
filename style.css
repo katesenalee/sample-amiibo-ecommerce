@@ -1,0 +1,206 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+div#search{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+div#search > label{
+    font-family: Montserrat;
+    font-size: 20px;
+    margin-right: 16px;
+}
+
+div#search > input#amiiboSearch{
+    flex: 1;
+    border: none;
+    border-bottom: 1px solid black;
+    padding-bottom: 4px;
+    padding-left: 2px;
+    margin-right: 16px;
+    font-size: 18px;
+}
+
+div#search > input#amiiboSearch::placeholder{
+    opacity: 0.3;
+}
+
+div#search > div.button{
+    height: 25px;
+    width: 25px;
+}
+
+div#search > div.button > img{
+    width: 100%;
+    height: 100%;
+}
+
+div#filterButtons{
+    width: 1200px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+div#filterButtons > div{
+    margin-top: 24px;
+    width: calc((100% - 48px) / 4);
+    padding: 24px 0;
+    display: grid;
+    place-items: center;
+    background-color: rgb(175, 1, 16);
+    color: white;
+    font-family: Montserrat;
+    font-size: 18px;
+    border-radius: 24px;
+}
+
+div#amiibosContainer{
+    width: 1200px;
+    display: flex;
+    flex-direction: row;
+    /* push to ends and equal distance in between */
+    justify-content: space-between;
+    /* same height */
+    align-items: stretch;
+    /* next row/column if needed */
+    flex-wrap: wrap;
+}
+
+div#amiibosContainer > div.amiiboContainer{
+    /* ((100% - (cards-1)*16)/cards - 32px) */
+    width: calc((100% - 48px)/4 - 32px); 
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(175, 1, 16) 100%;
+    background: radial-gradient(
+        circle at 15% 15%,
+        rgb(232, 31, 47) 0%,
+        rgb(219, 52, 66) 0%,
+        rgb(199, 9, 25) 35%,
+        rgb(175, 1, 16) 100%
+    );
+    color: white;
+    padding: 16px;
+    overflow: hidden;
+    border-radius: 32px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+}
+
+div#amiibosContainer > div.amiiboContainer:hover{
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* everything: not last child */
+/* div#amiibosContainer > div.amiiboContainer > *:not(:last-child){
+    margin-bottom: 32px;
+} */
+
+/* everything with a previous sibling (not first) */
+div#amiibosContainer > div.amiiboContainer > * + *{
+    margin-top: 20px;
+}
+
+div#amiibosContainer > div.amiiboContainer > img.amiiboImage{
+    height: 200px;
+}
+
+div#amiibosContainer > div.amiiboContainer > div.name{
+    font-family: Montserrat;
+    font-size: 32px;
+    font-weight: 700;
+    border-left: 5px solid white;
+    padding-left: 16px;
+    align-self: stretch;
+    margin-top: 24px;
+}
+
+div#amiibosContainer > div.amiiboContainer > div.date{
+    font-family: Lato;
+    font-weight: 700;
+    font-size: 14px;
+    opacity: 0.8;
+    align-self: flex-start;
+    margin-top: 15px;
+}
+
+div#amiibosContainer > div.amiiboContainer > div.price{
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 20px;
+    align-self: flex-end;
+    margin-top: 10px;
+}
+
+div#amiibosContainer > div.amiiboContainer > div.gameSeries{
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: 300;
+    align-self: flex-end;
+    margin-top: 8px;
+}
+
+div#amiibosContainer > div.amiiboContainer > img.heart{
+    position: absolute;
+    margin-top: 0px;
+    height: 30px;
+    width: 40px;
+    bottom: 16px;
+    left: 16px;
+}
+
+div#modal{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(175, 1, 16);
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    color: white;
+    padding: 16px;
+    border-radius: 24px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+}
+
+div#modal > div.count{
+    display: flex;
+    flex-direction: column;
+    padding-right: 8px;
+    border-right: 1px solid white;
+}
+
+div#modal > div.avgPrice{
+    display: flex;
+    flex-direction: column;
+    padding-left: 8px;
+}
+
+div.title{
+    font-family: Lato;
+    font-weight: 72px;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+div.number{
+    font-family: Montserrat;
+    font-weight: 72px;
+    font-size: 28px;
+}
